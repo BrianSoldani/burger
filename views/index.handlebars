@@ -16,6 +16,7 @@
         {{#each burger_name}}
         {{#unless this.devoured}}
         <div class="col-md-auto">
+        
             {{this.id}}.{{this.burger_name}}
         <button class="btn btn-danger float-right change-devour" value={{this.id}}>Devour It!</button>
         </div>
