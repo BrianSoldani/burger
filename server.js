@@ -9,11 +9,11 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.engine("handlebars", exphbs({ defaultLayout: "main"}));
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 app.use(routes);
 
-app.listen(PORT, ()=>{
-    console.log("Server listening on: http://localhost:" + PORT)
+app.listen(PORT, () => {
+  console.log("Server listening on: http://localhost:" + PORT)
 })
