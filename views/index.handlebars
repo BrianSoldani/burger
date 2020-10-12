@@ -1,0 +1,34 @@
+<h1>Eat-Da-Burger!</h1>
+<div class="container">
+    <img src="https://media.istockphoto.com/photos/double-cheese-burger-picture-id945057664?k=6&m=945057664&s=612x612&w=0&h=RUo4h_hgeBaExePasl-2YDhEMp4iKKScKpxX_mXlJVY=">
+    <br><br>
+    <h2>Describe your perfect burger. Submit it. Devour it!</h2>
+<form action="/burgers/create" class="create-form" method="POST">
+    <div class="form-group">
+        <label for="burger">Burger Name:</label>
+        <input type="text" id="burger" name="burger_name">
+        <button type="submit" class="btn btn-secondary">Submit</button>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+        <h3>Burgers to Devour</h3>
+        {{#each burger_name}}
+        {{#unless this.devoured}}
+        <div class="col-md-auto">
+            {{this.id}}.{{this.burger_name}}
+        <button type="submit" class="btn btn-danger float-right change-devour" value={{this.id}}>Devour It!</button>
+        </div>
+        {{/unless}}
+        {{/each}}
+        </div>
+        <hr>
+        <div class="col col-lg-5">
+            <h3>Devoured</h3>
+        {{#each burger_name}}
+            {{#if this.devoured}}
+                <input class="form-control" type="text" placeholder="{{this.id}}.{{this.burger_name}}" readonly>
+            {{/if}}
+        {{/each}}
+        </div>
+    </div>
+   </form>
